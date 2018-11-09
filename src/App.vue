@@ -1,17 +1,17 @@
 <template>
   <div id="app">
     <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <SeekerHeader/>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue';
+import SeekerHeader from './components/SeekerHeader.vue';
 
 export default {
   name: 'app',
   components: {
-    HelloWorld,
+    SeekerHeader,
   },
 };
 </script>
@@ -24,5 +24,12 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+  display:flex;
+  
+}
+
+#app img{
+  width: 50px;
+  height: 50px;
 }
 </style>
