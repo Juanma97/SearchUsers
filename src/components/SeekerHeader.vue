@@ -1,30 +1,31 @@
 <template>
   <div class="seeker">
+    <img alt="Vue logo" src="../assets/logo.png">
     <input type="search" v-model='query'>
-    <button type="button">Search user</button>
+    <button type="button" @click="emitirEventoPadre">Search user</button>
+    <button type="button" @click="clearSearch">Clear search</button>
     <p>Searching for: {{ query }}</p>
   </div>
 </template>
 
 <script>
 
+
 export default {
-  name: 'SeekerHeade',
+  name: 'SeekerHeader',
   props: {
     msg: String,
+    query: String,
   },
-  data() {
-    return {
-      query: 'Hola',
-      users: null,
-    };
+  methods: {
+    emitirEventoPadre() {
+      this.$emit('seeker-header:change', this.query);
+    },
+    clearSearch() {
+      this.$emit('clear-search:change');
+    },
   },
-  async created() {
-    await Vue.axios.get(api)
-      .then((response) => {
-        
-      });
-  },
+
 };
 </script>
 
@@ -35,20 +36,27 @@ export default {
 }
 
 .seeker button{
-  width: 100px;
+  width: 150px;
   height: 40px;
   padding: 10px;
-  background: lightblue;
+  background: white;
   border-radius: 10px;
+  font-size: 16px;
+  cursor: pointer;
+  font-family: 'Avenir', Helvetica, Arial, sans-serif;
   margin: 16px;
 }
 
 .seeker input[type="search"]{
-  width: 300px;
+  width: 500px;
   height: 40px;
-  padding: 10px;
-  border-radius: 10px;
+  padding: 14px;
+  border: none;
+  border-bottom: 1px solid black;
   margin: 16px;
+  font-size: 16px;
+  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  outline: none;
 }
 
 .seeker p{
@@ -68,5 +76,10 @@ li {
 }
 a {
   color: #42b983;
+}
+
+.results{
+  display: flex;
+  flex-direction: column;
 }
 </style>

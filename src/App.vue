@@ -1,17 +1,16 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <SeekerHeader/>
+    <Seeker/>
   </div>
 </template>
 
 <script>
-import SeekerHeader from './components/SeekerHeader.vue';
+import Seeker from './components/Seeker.vue';
 
 export default {
   name: 'app',
   components: {
-    SeekerHeader,
+    Seeker,
   },
 };
 </script>
@@ -22,10 +21,11 @@ export default {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #2c3e50;
   margin-top: 60px;
   display:flex;
-  
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 #app img{
