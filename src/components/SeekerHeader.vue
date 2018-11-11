@@ -1,10 +1,10 @@
 <template>
   <div class="seeker">
+    <div class="container-seeker">
     <img alt="Vue logo" src="../assets/logo.png">
-    <input type="search" v-model='query'>
-    <button type="button" @click="emitirEventoPadre">Search user</button>
-    <button type="button" @click="clearSearch">Clear search</button>
-    <p>Searching for: {{ query }}</p>
+      <input type="search" v-model='query' @input="emitirEventoPadre">
+      <p>Searching for: {{ query }}</p>
+    </div>
   </div>
 </template>
 
@@ -25,7 +25,6 @@ export default {
       this.$emit('clear-search:change');
     },
   },
-
 };
 </script>
 
@@ -33,6 +32,17 @@ export default {
 <style scoped>
 .seeker{
   display: flex;
+  justify-content: center;
+
+}
+.container-seeker{
+  display: flex;
+  flex-direction: column;
+}
+
+.container-buttons {
+  display: flex;
+  justify-content: center;
 }
 
 .seeker button{
@@ -40,7 +50,7 @@ export default {
   height: 40px;
   padding: 10px;
   background: white;
-  border-radius: 10px;
+  border-left: 1px solid black;
   font-size: 16px;
   cursor: pointer;
   font-family: 'Avenir', Helvetica, Arial, sans-serif;

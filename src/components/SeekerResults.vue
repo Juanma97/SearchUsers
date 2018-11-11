@@ -28,7 +28,7 @@ export default {
 .results{
   width: 100%;
   display: grid;
-  grid-template-columns: 20% 20% 20% 20% 20%;
+  grid-template-columns: 25% 25% 25% 25% 25% 25% 25%;
   margin: 16px;
   align-content: space-between;
   justify-content: space-around;

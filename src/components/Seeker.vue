@@ -1,6 +1,6 @@
 <template>
     <div id="container">
-        <SeekerHeader @seeker-header:change="listenSeekerHeader"
+        <SeekerHeader v-once @seeker-header:change="listenSeekerHeader"
          @clear-search:change="clearSearch"></SeekerHeader>
         <h1 class="loading-text" v-if="data">Loading...</h1>
         <SeekerResults :users="usersSeekerFilter"></SeekerResults>
@@ -18,27 +18,23 @@ export default {
     return {
       usersSeekerFilter: [],
       usersSeeker: [],
-      querySeeker: '',
       data: true,
     };
   },
   methods: {
     listenSeekerHeader(query) {
-      console.log(query);
-      this.querySeeker = query;
       this.usersSeekerFilter = this.usersSeeker
-        .filter(e => e.name.first.includes(this.querySeeker));
+        .filter(e => e.name.first.includes(query));
     },
     listenSeekerResults(array) {
       this.usersSeeker = array;
-      console.log(this.users);
     },
     clearSearch() {
       this.usersSeekerFilter = this.usersSeeker;
     },
   },
-  async created() {
-    await Vue.axios.get('https://randomuser.me/api/?results=100')
+  async mounted() {
+    await Vue.axios.get('https://randomuser.me/api/?results=500')
       .then((response) => {
         this.usersSeeker = response.data.results;
         this.usersSeekerFilter = response.data.results;
