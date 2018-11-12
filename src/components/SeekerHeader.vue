@@ -1,7 +1,7 @@
 <template>
   <div class="seeker">
     <div class="container-seeker">
-    <img alt="Vue logo" src="../assets/logo.png">
+    <img alt="Vue logo" src="../assets/usearch.png">
       <input type="search" v-model='query' @input="emitirEventoPadre">
       <p>Searching for: {{ query }}</p>
     </div>
@@ -72,6 +72,7 @@ export default {
 .seeker p{
   display: flex;
   align-items: center;
+  margin: 16px;
 }
 h3 {
   margin: 40px 0 0;

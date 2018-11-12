@@ -29,7 +29,8 @@ export default {
 }
 
 #app img{
-  width: 50px;
-  height: 50px;
+  width: 400px;
+  height: 100px;
+  margin: 0;
 }
 </style>
