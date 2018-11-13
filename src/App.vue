@@ -28,9 +28,5 @@ export default {
   align-items: center;
 }
 
-#app img{
-  width: 400px;
-  height: 100px;
-  margin: 0;
-}
+
 </style>

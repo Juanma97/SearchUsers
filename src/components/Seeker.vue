@@ -1,7 +1,6 @@
 <template>
     <div id="container">
-        <SeekerHeader v-once @seeker-header:change="listenSeekerHeader"
-         @clear-search:change="clearSearch"></SeekerHeader>
+        <SeekerHeader v-once @seeker-header:change="listenSeekerHeader"></SeekerHeader>
         <h1 class="loading-text" v-if="data">Loading...</h1>
         <SeekerResults :users="usersSeekerFilter"></SeekerResults>
     </div>
@@ -28,9 +27,6 @@ export default {
     },
     listenSeekerResults(array) {
       this.usersSeeker = array;
-    },
-    clearSearch() {
-      this.usersSeekerFilter = this.usersSeeker;
     },
   },
   async mounted() {

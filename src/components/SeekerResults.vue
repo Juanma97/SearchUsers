@@ -1,6 +1,7 @@
 <template>
     <div class="results">
       <div v-for="(user, index) in users" :key="index">
+        <img class="img-user" v-bind:src="user.picture.medium"/>
         <h3>{{ user.name.first }}</h3>
         <p>{{ user.gender }}</p>
       </div>
@@ -39,6 +40,12 @@ h3:hover{
   transition: 300ms;
   color: black;
   cursor: pointer;
+}
+
+.img-user {
+  width: 50px;
+  height: 50px;
+  border-radius: 100%;
 }
 
 </style>

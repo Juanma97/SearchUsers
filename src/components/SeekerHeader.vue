@@ -2,7 +2,7 @@
   <div class="seeker">
     <div class="container-seeker">
     <img alt="Vue logo" src="../assets/usearch.png">
-      <input type="search" v-model='query' @input="emitirEventoPadre">
+      <input type="search" v-model='query' @input="changeSearch">
       <p>Searching for: {{ query }}</p>
     </div>
   </div>
@@ -18,7 +18,7 @@ export default {
     query: String,
   },
   methods: {
-    emitirEventoPadre() {
+    changeSearch() {
       this.$emit('seeker-header:change', this.query);
     },
     clearSearch() {
@@ -92,5 +92,11 @@ a {
 .results{
   display: flex;
   flex-direction: column;
+}
+
+img{
+  width: 400px;
+  height: 100px;
+  margin: 0;
 }
 </style>
