@@ -1,9 +1,11 @@
 <template>
     <div class="results">
       <div v-for="(user, index) in users" :key="index">
-        <img class="img-user" v-bind:src="user.picture.medium"/>
-        <h3>{{ user.name.first }}</h3>
-        <p>{{ user.gender }}</p>
+        <div class="user-information">
+          <img v-once class="img-user" v-bind:src="user.picture.medium"/>
+          <h3>{{ user.name.first }}</h3>
+          <p>{{ user.gender }}</p>
+        </div>
       </div>
     </div>
 </template>
@@ -46,6 +48,14 @@ h3:hover{
   width: 50px;
   height: 50px;
   border-radius: 100%;
+  justify-self: center;
+}
+
+.user-information {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 </style>

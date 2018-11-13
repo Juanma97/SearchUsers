@@ -1,22 +1,28 @@
 <template>
-  <div id="app">
-    <Seeker/>
-  </div>
+<v-app>
+  <Seeker/>
+</v-app>
 </template>
 
 <script>
 import Seeker from './components/Seeker.vue';
 
 export default {
-  name: 'app',
+  name: 'App',
   components: {
     Seeker,
+  },
+  data() {
+    return {
+      //
+    };
   },
 };
 </script>
 
 <style>
 #app {
+
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -27,6 +33,5 @@ export default {
   justify-content: center;
   align-items: center;
 }
-
 
 </style>

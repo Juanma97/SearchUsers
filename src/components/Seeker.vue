@@ -1,8 +1,14 @@
 <template>
     <div id="container">
+        <v-toolbar app="true" fixed color="primary">
+          <v-toolbar-side-icon class="white--text"></v-toolbar-side-icon>
+          <v-toolbar-title class="white--text">USearch</v-toolbar-title>
+        </v-toolbar>
         <SeekerHeader v-once @seeker-header:change="listenSeekerHeader"></SeekerHeader>
-        <h1 class="loading-text" v-if="data">Loading...</h1>
+        <v-progress-circular size="64" indeterminate="true" class="loading-text"
+         v-if="data"></v-progress-circular>
         <SeekerResults :users="usersSeekerFilter"></SeekerResults>
+
     </div>
 </template>
 
@@ -30,7 +36,7 @@ export default {
     },
   },
   async mounted() {
-    await Vue.axios.get('https://randomuser.me/api/?results=500')
+    await Vue.axios.get('https://randomuser.me/api/?results=2000')
       .then((response) => {
         this.usersSeeker = response.data.results;
         this.usersSeekerFilter = response.data.results;
@@ -50,4 +56,23 @@ export default {
 </script>
 
 <style scoped>
+
+.container{
+  display: flex;
+  justify-content: center;
+}
+
+.loading-text {
+  margin-top: 20%;
+}
+
+img{
+  width: 200px;
+  height: 70px;
+  padding: 16px;
+}
+
+v-speed-dial{
+  
+}
 </style>
